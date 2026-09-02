@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { AppError } from "../errors/app-error.js";
-import { isvalidcardNumber } from "../services/card-validation.service.js";
+import { isValidCardNumber } from "../services/card-validation.service.js";
 import {
   cardValidationRequestBody,
   cardValidationResponseBody,
@@ -16,7 +16,7 @@ export const cardValidationController = async (
       throw new AppError("card number is required ", 400);
     }
 
-    const validation = isvalidcardNumber(cardNumber);
+    const validation = isValidCardNumber(cardNumber);
     const responseBody: cardValidationResponseBody = {
       status: "success",
       statusCode: 200,
