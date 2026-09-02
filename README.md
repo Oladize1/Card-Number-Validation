@@ -1,11 +1,14 @@
 # Card Number Validation API
 
+**Live demo:** https://card-number-validation.pxxlspace.cv/
+
 This project is a card number validation service. It checks whether a submitted card number is structurally valid, correct length and format, then verified against the industry-standard Luhn algorithm (a checksum used to catch typos and malformed numbers).
 
 ## Tech Stack
 - Node.js, TypeScript (strict mode)
 - Express.js
 - Vitest + Supertest for testing
+- ESLint for code quality checks
 
 ## Setup
 
@@ -43,6 +46,16 @@ The server runs on `http://localhost:4000` by default, or whichever `PORT` you s
 
 ## API
 
+### GET /
+
+Basic root route confirming the API is running.
+
+**Response (200):**
+
+```json
+{ "status": "ok", "message": "Card Number Validation API is running" }
+```
+
 ### POST /api/validate
 
 **Request body:**
@@ -71,6 +84,16 @@ curl -X POST http://localhost:4000/api/validate \
   -d '{"cardNumber": "4111111111111111"}'
 ```
 
+### Unmatched routes
+
+Any request to an undefined route returns a consistent JSON 404 response instead of a default HTML error page.
+
+**Response (404):**
+
+```json
+{ "status": "error", "statusCode": 404, "message": "Route GET /foo not found" }
+```
+
 ## Testing
 
 Run all tests:
@@ -89,6 +112,12 @@ Run only the integration tests for the endpoint:
 
 ```
 npm run test:integration
+```
+
+Check code quality with ESLint:
+
+```
+npm run lint
 ```
 
 ## Design Decisions

@@ -9,7 +9,9 @@
     "dev": "tsx watch src/server.ts",
     "test": "vitest run",
     "test:service": "vitest run tests/card-validation.service.test.ts",
-    "test:integration": "vitest run tests/card-validation.integration.test.ts"
+    "test:integration": "vitest run tests/card-validation.integration.test.ts",
+    "lint": "eslint src tests",
+    "lint:fix": "eslint src tests --fix"
   },
   "keywords": [],
   "type": "module",
@@ -18,12 +20,15 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/express": "^5.0.6",
     "@types/node": "^26.4.1",
     "@types/supertest": "^7.2.1",
+    "eslint": "^10.9.1",
     "supertest": "^7.2.2",
     "tsx": "^4.23.13",
-    "typescript": "^7.0.2",
+    "typescript": "~5.6.0",
+    "typescript-eslint": "^8.69.0",
     "vitest": "^4.1.11"
   }
 }
