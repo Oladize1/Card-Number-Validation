@@ -1,6 +1,5 @@
-export const isvalidcardNumber = (
-  cardNumber: string,
-): { isValid: boolean; message: string } => {
+import { cardValidationResult } from "../types/card-validation.types.js";
+export const isvalidcardNumber = (cardNumber: string): cardValidationResult => {
   const trimcardNumber = cardNumber.trim();
   if (trimcardNumber.length < 13 || trimcardNumber.length > 19) {
     return { isValid: false, message: "outside bound" };
