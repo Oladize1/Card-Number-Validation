@@ -21,7 +21,7 @@ git clone https://github.com/Oladize1/Card-Number-Validation.git
 2. Move into the project directory
 
 ```
-cd card-validation-api
+cd Card-Number-Validation
 ```
 
 3. Install dependencies
